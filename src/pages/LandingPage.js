@@ -48,13 +48,11 @@ export const render = (container) => {
         </div>
       </div>
 
-      <!-- Existing sections -->
       <section class="contact-section">
         <!-- Contact section content -->
       </section>
 
-     
-     <section class="form-section">
+      <section class="form-section">
         <h2 class="form-title">Kirim Pesan</h2>
         <form id="contact-form">
           <div class="form-group">
@@ -88,7 +86,6 @@ export const render = (container) => {
     </div>
   `;
 
-  // Attach event listeners
   const attachEventListeners = () => {
     const mulaiBtn = container.querySelector('.mulai-btn');
     const contactForm = container.querySelector('#contact-form');
