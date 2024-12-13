@@ -3,24 +3,30 @@ import DashboardPage from './DashboardPage';
 import NotifikasiPage from './notifikasiPage';
 import laporanPage from './laporanPage';
 import profilPage from './profilPage';
+import laporanMyPage from './laporanMyPage';
+import registerPage from './registerPage';  // Pastikan Anda mengimpor registerPage
+import loginPage from './loginPage';
 
 // Impor file CSS untuk gaya halaman admin
 import '../../styles/masyarakat.css';
 
 // Objek routes berisi definisi rute URL dan komponen halaman yang akan dirender
+// Tambahkan rute baru ke objek routes
 const routes = {
-  '/': DashboardPage, // Rute untuk halaman Dashboard
-  '/masyarakat#notifikasi': NotifikasiPage, // Rute untuk halaman Notifikasi
-  '/masyarakat#laporansaya': laporanPage, // Rute untuk halaman Laporan
-  '/masyarakat#profil': profilPage, // Rute untuk halaman Profil
+  '/': DashboardPage, // Beranda
+  '/masyarakat#lapormasalah': laporanMyPage, // Lapor Masalah
+  '/masyarakat#laporansaya': laporanPage, // Laporan Saya
+  '/masyarakat#notifikasi': NotifikasiPage, // Notifikasi
+  '/masyarakat#profil': profilPage, // Profil
+  '/masyarakat#masuk': loginPage, // Menambahkan rute untuk loginPage
+  '/masyarakat#daftar': registerPage, // Menambahkan rute untuk registerPage
+
+  // Daftar/Masuk
+  render: async () => '<div>Halaman Daftar/Masuk</div>',
+  afterRender: async () => { },
 };
 
-// Objek aplikasi utama
 const app = {
-  /**
-   * Metode untuk merender struktur HTML awal ke dalam container.
-   * @param {HTMLElement} container - Elemen DOM tempat aplikasi akan dirender.
-   */
   render(container) {
     container.innerHTML = `
       <header class="header">
@@ -40,12 +46,42 @@ const app = {
           </div>
           <ul class="nav-list">
             <li class="nav-item">
-              <a href="/" class="nav-link" data-link>
+              <a href="/masyarakat#daftar" class="nav-link" data-link>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                Daftar
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/masyarakat#masuk" class="nav-link" data-link>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                Masuk
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/masyarakat#beranda" class="nav-link" data-link>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                   <polyline points="9 22 9 12 15 12 15 22"></polyline>
                 </svg>
                 Beranda
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/masyarakat#lapormasalah" class="nav-link" data-link>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                Lapor Masalah
               </a>
             </li>
             <li class="nav-item">
@@ -78,18 +114,16 @@ const app = {
                 Profil
               </a>
             </li>
-            <li class="nav-item">
-              <logout-button></logout-button>
-            </li>
           </ul>
         </nav>
       </header>
       <main class="main-content" id="page-content"></main>
     `;
 
-    // Inisialisasi aplikasi setelah rendering awal
     this._initializeApp();
   },
+
+
 
   /**
    * Inisialisasi aplikasi, termasuk mengatur routing dan event listeners.

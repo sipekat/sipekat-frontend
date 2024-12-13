@@ -1,34 +1,59 @@
 const DashboardPage = {
-  async render() {
-    return `
-		<section class="report-section">
-            <h2>Laporan Terkini <span class="status">status</span></h2>
-            <div class="report-list">
-                <!-- Laporan 1 -->
-                <div class="report-item">
-                    <h3>Jalan Berlubang</h3>
-                    <p class="location">Lokasi: JL.Kota NO. 123</p>
-                    <span class="status-label pending">Menunggu Verifikasi</span>
-                </div>
-                <!-- Laporan 2 -->
-                <div class="report-item">
-                    <h3>Lampu Jalan Mati</h3>
-                    <p class="location">Lokasi: Taman Kota</p>
-                    <span class="status-label processing">Dalam Proses</span>
-                </div>
-                <!-- Laporan 3 -->
-                <div class="report-item">
-                    <h3>Sampah Menumpuk</h3>
-                    <p class="location">Lokasi: Pasar Sentral</p>
-                    <span class="status-label completed">Selesai</span>
-                </div>
+    async render() {
+      return `
+       
+  
+        <main>
+          <section class="welcome">
+            <h1>Selamat Datang di Smart Reporting!</h1>
+            <p><strong>Solusi pelaporan cerdas untuk infrastruktur dan kesehatan.</strong></p>
+            <p>Tingkatkan respons dan perbaikan untuk menciptakan lingkungan yang lebih baik!</p>
+            <button class="report-button">Mulai Lapor</button>
+          </section>
+  
+          <section class="stats">
+            <div class="stat-item">
+              <p class="stat-number">5,000</p>
+              <p>Pengguna Aktif</p>
             </div>
-        </section>
-		
-	  `;
-  },
-
-  async afterRender() {},
-};
-
-export default DashboardPage;
+            <div class="stat-item">
+              <p class="stat-number">10,100</p>
+              <p>Laporan Dibuat</p>
+            </div>
+            <div class="stat-item">
+              <p class="stat-number">98%</p>
+              <p>Tingkat Respons</p>
+            </div>
+            <div class="stat-item">
+              <p class="stat-number">15 mins</p>
+              <p>Rata - Rata Respons</p>
+            </div>
+          </section>
+  
+          <section class="report-guide">
+            <h2>Cara Melapor</h2>
+            <p>Cara yang bisa anda lakukan untuk melakukan pelaporan:</p>
+            <div class="contact">
+              <p>Anda dapat melaporkan kasus ke SIPEKAT melalui WhatsApp ke nomor di bawah ini, dengan mengikuti format yang ada.</p>
+              <p class="whatsapp-number">0811-9620-0340</p>
+            </div>
+          </section>
+        </main>
+  
+        <footer>
+          <p>© Copyright © 2024 SIPEKAT.</p>
+          <p>Best Viewed with Mozilla Firefox / Google Chrome</p>
+        </footer>
+      `;
+    },
+  
+    async afterRender() {
+      // Tambahkan interaktivitas di sini, jika diperlukan
+      const reportButton = document.querySelector('.report-button');
+      reportButton.addEventListener('click', () => {
+        alert('Fitur laporan akan segera tersedia!');
+      });
+    },
+  };
+  
+  export default DashboardPage;
