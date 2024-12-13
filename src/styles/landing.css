@@ -82,6 +82,82 @@
   font-size: 0.9rem;
 }
 
+.apa-itu-sipekat {
+  background-color: #f8f9fa;
+  padding: 4rem 2rem;
+  text-align: center;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.apa-itu-sipekat h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #343a40;
+}
+
+.apa-itu-sipekat p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #495057;
+  margin: 0 auto 1rem;
+}
+
+.layanan-kami {
+  padding: 5rem 2rem;
+  background-color: #f0f0f0;
+  text-align: center;
+}
+
+.layanan-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.layanan-box {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: left;
+  transition: transform 0.3s ease-in-out;
+  width: 80%;
+  max-width: 600px;
+}
+
+.layanan-box:hover {
+  transform: translateY(-10px);
+}
+
+.layanan-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.layanan-icon i {
+  font-size: 2.75rem;
+  color: #007bff;
+}
+
+.layanan-box h3 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.layanan-box p {
+  color: #6b7280;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
 /* Contact Section */
 .contact-section {
   background: white;
