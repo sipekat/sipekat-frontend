@@ -1,19 +1,13 @@
-// register.js
 export const render = (container) => {
-  // Render HTML content
   container.innerHTML = `
-   <style>
+    <style>
       .container {
         max-width: 400px;
         margin: 50px auto;
         padding: 20px;
         background: white;
-        border-radius: 12px;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-      }
-      .container:hover {
-        transform: translateY(-5px);
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       }
       .form-group {
         margin-bottom: 15px;
@@ -22,30 +16,27 @@ export const render = (container) => {
         display: block;
         margin-bottom: 5px;
         color: #333;
-        font-weight: 500;
       }
       .form-group input {
         width: 100%;
-        padding: 10px;
+        padding: 8px;
         border: 1px solid #ddd;
-        border-radius: 6px;
+        border-radius: 4px;
         box-sizing: border-box;
-        transition: border-color 0.3s ease;
       }
       .form-group input:focus {
-        border-color: #007bff;
         outline: none;
-        box-shadow: 0 0 5px rgba(0,123,255,0.2);
+        border-color: #007bff;
+        box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
       }
       button {
         width: 100%;
         padding: 10px;
-        background: #3498db;
+        background: #007bff;
         color: white;
         border: none;
-        border-radius: 6px;
+        border-radius: 4px;
         cursor: pointer;
-        transition: background 0.3s ease;
         margin-top: 10px;
       }
       button:hover {
@@ -55,7 +46,6 @@ export const render = (container) => {
         color: #dc3545;
         margin-top: 10px;
         min-height: 20px;
-        text-align: center;
       }
       .login-text {
         margin-top: 15px;

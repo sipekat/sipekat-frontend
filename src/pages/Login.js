@@ -2,18 +2,14 @@ export const render = (container) => {
   const previousLogin = getPreviousLogin();
 
   container.innerHTML = `
-<style>
+    <style>
       .container {
         max-width: 400px;
         margin: 50px auto;
         padding: 20px;
         background: white;
-        border-radius: 12px;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-      }
-      .container:hover {
-        transform: translateY(-5px);
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       }
       .form-group {
         margin-bottom: 15px;
@@ -22,30 +18,23 @@ export const render = (container) => {
         display: block;
         margin-bottom: 5px;
         color: #333;
-        font-weight: 500;
       }
       .form-group input {
         width: 100%;
-        padding: 10px;
+        padding: 8px;
         border: 1px solid #ddd;
-        border-radius: 6px;
+        border-radius: 4px;
         box-sizing: border-box;
-        transition: border-color 0.3s ease;
-      }
-      .form-group input:focus {
-        border-color: #007bff;
-        outline: none;
-        box-shadow: 0 0 5px rgba(0,123,255,0.2);
       }
       button {
         width: 100%;
         padding: 10px;
-        background: #3498db;
+        background: #007bff;
         color: white;
         border: none;
-        border-radius: 6px;
+        border-radius: 4px;
         cursor: pointer;
-        transition: background 0.3s ease;
+        margin-top: 10px;
       }
       button:hover {
         background: #0056b3;
@@ -54,7 +43,6 @@ export const render = (container) => {
         color: #dc3545;
         margin-top: 10px;
         min-height: 20px;
-        text-align: center;
       }
       .register-text {
         margin-top: 15px;
@@ -74,11 +62,11 @@ export const render = (container) => {
       <form>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="email" value="${previousLogin.email || ''}" required>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" required>
+          <input type="password" id="password" name="password" value="${previousLogin.password || ''}" required>
         </div>
         <div class="error"></div>
         <button type="submit">Login</button>
