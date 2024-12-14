@@ -1,18 +1,42 @@
+/**
+ * @fileoverview File ini berisi konfigurasi dan inisialisasi aplikasi masyarakat.
+ * File ini bertanggung jawab untuk menyiapkan routing, template, dan menginisialisasi
+ * dashboard masyarakat dengan menggunakan AppHandler dari core.
+ */
+
+// Import handler aplikasi dari core untuk mengelola routing dan rendering
 import { AppHandler } from '../../core/app';
+
+// Import halaman-halaman yang digunakan dalam aplikasi masyarakat
 import DashboardPage from './DashboardPage';
 import NotifikasiPage from './notifikasiPage';
 import laporanPage from './laporanPage';
 import profilPage from './profilPage';
+
+// Import stylesheet dan komponen yang dibutuhkan
 import '../../styles/masyarakat.css';
 import '../../scripts/components/logout-button';
 
+/**
+ * Konfigurasi rute untuk aplikasi masyarakat.
+ * Setiap rute memetakan path URL ke komponen halaman yang sesuai.
+ * @constant {Object}
+ */
 const routes = {
-  '/': DashboardPage,
-  '/masyarakat#notifikasi': NotifikasiPage,
-  '/masyarakat#laporansaya': laporanPage,
-  '/masyarakat#profil': profilPage,
+  '/': DashboardPage, // Halaman dashboard sebagai halaman utama
+  '/masyarakat#notifikasi': NotifikasiPage, // Halaman notifikasi pengguna
+  '/masyarakat#laporansaya': laporanPage, // Halaman daftar laporan pengguna
+  '/masyarakat#profil': profilPage, // Halaman profil pengguna
 };
 
+/**
+ * Template HTML untuk layout dasar aplikasi masyarakat.
+ * Template ini mendefinisikan struktur header dengan menu drawer
+ * dan area konten utama.
+ *
+ * @constant {string}
+ * @note Menggunakan data-link pada elemen <a> untuk penanganan routing kustom
+ */
 const masyarakatTemplate = `
   <header class="header">
     <button class="menu-button" id="menuButton">
@@ -22,9 +46,7 @@ const masyarakatTemplate = `
         <line x1="3" y1="18" x2="21" y2="18"></line>
       </svg>
     </button>
-
     <div class="overlay" id="overlay"></div>
-
     <nav class="drawer" id="drawer">
       <div class="drawer-header">
         <h2>Menu</h2>
@@ -78,14 +100,27 @@ const masyarakatTemplate = `
   <main class="main-content" id="page-content"></main>
 `;
 
+/**
+ * Inisialisasi instance AppHandler dengan konfigurasi untuk aplikasi masyarakat.
+ * AppHandler menangani routing dan rendering komponen.
+ *
+ * @constant {AppHandler}
+ */
 const app = new AppHandler(routes, masyarakatTemplate);
 
-// Fungsi utama untuk menjalankan aplikasi
+/**
+ * Fungsi utama untuk menginisialisasi aplikasi.
+ * Dipanggil ketika DOM telah sepenuhnya dimuat.
+ *
+ * @function
+ * @note Menggunakan querySelector untuk menemukan elemen container aplikasi
+ */
 const main = () => {
   const container = document.querySelector('#app');
   app.render(container);
 };
 
+// Event listener untuk memastikan DOM telah dimuat sebelum menjalankan aplikasi
 window.addEventListener('DOMContentLoaded', main);
 
 export default app;
