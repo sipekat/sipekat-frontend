@@ -1,4 +1,3 @@
-// pages/landing.js
 import '../styles/landing.css';
 
 export const render = (container) => {
@@ -48,7 +47,6 @@ export const render = (container) => {
         </div>
       </div>
 
-
       <section class="apa-itu-sipekat">
         <h2>Apa itu SIPEKAT?</h2>
         <p>SIPEKAT (Sistem Pelaporan Cerdas Terintegrasi) adalah platform inovatif yang menghubungkan masyarakat dengan pemerintah dan pemangku kepentingan terkait untuk meningkatkan respons dan perbaikan infrastruktur dan kesehatan.</p>
@@ -91,8 +89,6 @@ export const render = (container) => {
     </div>
   </div>
 </section>
-<<<<<<< HEAD
-=======
 
 <section class="faq-section">
   <div class="faq-container">
@@ -162,7 +158,6 @@ export const render = (container) => {
     </div>
   </div>
 </section>
->>>>>>> 49c651925899dbf2902359b8c6dc07b48968e6dd
 
       <section class="form-section">
         <h2 class="form-title">Kirim Pesan</h2>
@@ -195,7 +190,6 @@ export const render = (container) => {
           </button>
         </form>
       </section>
-
 
       <section class="newsletter-section">
   <h2>Berlangganan Newsletter</h2>
