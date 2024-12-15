@@ -48,9 +48,117 @@ export const render = (container) => {
         </div>
       </div>
 
-      <section class="contact-section">
-        <!-- Contact section content -->
-      </section>
+      <section class="apa-itu-sipekat">
+        <h2>Apa itu SIPEKAT?</h2>
+        <p>SIPEKAT (Sistem Pelaporan Cerdas Terintegrasi) adalah platform inovatif yang menghubungkan masyarakat dengan pemerintah dan pemangku kepentingan terkait untuk meningkatkan respons dan perbaikan infrastruktur dan kesehatan.</p>
+        <p>Platform ini dikembangkan untuk mempercepat respons terhadap masalah infrastruktur dan kesehatan, meningkatkan transparansi, dan memudahkan koordinasi antar instansi terkait.</p>
+         </section>
+
+        <section class="layanan-kami">
+           <h2>Layanan Kami</h2>
+           <div class="layanan-kami-description">
+            Solusi pelaporan cerdas yang memudahkan pengelolaan infrastruktur dan kesehatan
+            </div>
+        <div class="layanan-container">
+          <div class="layanan-box">
+          <div class="layanan-icon">
+        <i class="fas fa-server"></i>
+          </div>
+      <h3>Pelayanan Infrastruktur</h3>
+      <p>Laporan kerusakan atau masalah infrastruktur dengan mudah dan cepat.</p>
+    </div>
+    <div class="layanan-box">
+      <div class="layanan-icon">
+        <i class="fas fa-hospital"></i>
+      </div>
+      <h3>Pelayanan Kesehatan</h3>
+      <p>Sistem pelaporan terintegrasi untuk fasilitas kesehatan.</p>
+    </div>
+    <div class="layanan-box">
+      <div class="layanan-icon">
+        <i class="fas fa-chart-line"></i>
+      </div>
+      <h3>Real-time Monitoring</h3>
+      <p>Pantau status laporan Anda secara real-time.</p>
+    </div>
+    <div class="layanan-box">
+      <div class="layanan-icon">
+        <i class="fas fa-chart-pie"></i>
+      </div>
+      <h3>Dashboard Analytics</h3>
+      <p>Analisis data dan statistik laporan secara komprehensif.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="faq-container">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <div class="faq-items">
+      <div class="faq-item">
+        <h3 class="faq-question">Apa itu SIPEKAT?</h3>
+        <div class="faq-answer">
+          <p>SIPEKAT adalah platform inovatif untuk pelaporan dan penanganan masalah infrastruktur dan kesehatan secara efisien.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">Bagaimana cara melaporkan masalah?</h3>
+        <div class="faq-answer">
+          <p>Anda dapat melaporkan masalah melalui aplikasi SIPEKAT yang tersedia di perangkat mobile Anda. Kami akan segera menindaklanjuti setiap laporan yang masuk.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">Apakah layanan SIPEKAT gratis?</h3>
+        <div class="faq-answer">
+          <p>Ya, layanan SIPEKAT tersedia secara gratis untuk masyarakat umum. Kami berkomitmen untuk meningkatkan kesejahteraan masyarakat melalui platform ini.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">Bagaimana cara menghubungi tim SIPEKAT?</h3>
+        <div class="faq-answer">
+          <p>Anda dapat menghubungi kami melalui email di email@sipekat.com atau nomor telepon +62 123 4567 890. Tim kami akan dengan senang hati membantu Anda.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    
+<section class="contact-section">
+  <div class="contact-container">
+    <div class="contact-info">
+      <h2>Ada Pertanyaan? Kami Siap Membantu</h2>
+      <h3>Tim kami siap membantu anda 24/7. Pilih cara nyaman untuk menghubungi kami</h3>
+      <h2>Cara Menghubungi Kami</h2>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <i class="fas fa-phone"></i>
+        </div>
+        <div class="contact-detail">
+          <p>Telepon</p>
+          <a href="tel:+6282134565678">+62 812 345-678</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="contact-detail">
+          <p>Email</p>
+          <a href="mailto:info@sipekat.id">info@sipekat.id</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="contact-detail">
+          <p>Kantor</p>
+          <p>Jalan Sudirman No.123 Jakarta Pusat</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       <section class="form-section">
         <h2 class="form-title">Kirim Pesan</h2>
@@ -83,7 +191,32 @@ export const render = (container) => {
           </button>
         </form>
       </section>
+
+      <section class="newsletter-section">
+  <h2>Berlangganan Newsletter</h2>
+  <h3>Dapatkan update terbaru tentang SIPEKAT</h3>
+  <div class="newsletter-input">
+    <input type="email" id="email-input" placeholder="Masukkan email anda" required>
+    <button id="subscribe-btn">Subscribe</button>
+  </div>
+</section>
+
+        <section class="footer-section">
+  <div class="footer-container">
+    <div class="footer-info">
+    <h2>SIPEKAT</h2>
+      <p>Platform inovatif untuk pelaporan dan penanganan masalah infrastruktur dan kesehatan secara efisien.</p>
+      <div class="footer-social">
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+      </div>
     </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 SIPEKAT. All rights reserved.</p>
+  </div>
+</section>
   `;
 
   const attachEventListeners = () => {
@@ -98,6 +231,37 @@ export const render = (container) => {
       e.target.reset();
     });
   };
+// FAQ Toggle
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach(item => {
+  const questionContainer = item.querySelector('.faq-question-container');
+  const toggleBtn = item.querySelector('.faq-toggle');
+  const answer = item.querySelector('.faq-answer');
+
+  if (questionContainer && toggleBtn && answer) {
+    questionContainer.addEventListener('click', () => {
+      // Close all other answers
+      faqItems.forEach(otherItem => {
+        const otherAnswer = otherItem.querySelector('.faq-answer');
+        const otherToggleBtn = otherItem.querySelector('.faq-toggle');
+        
+        if (otherAnswer !== answer && otherToggleBtn) {
+          otherAnswer.style.display = 'none';
+          otherToggleBtn.textContent = '+';
+        }
+      });
+
+      // Toggle current answer
+      if (answer.style.display === 'none') {
+        answer.style.display = 'block';
+        toggleBtn.textContent = '-';
+      } else {
+        answer.style.display = 'none';
+        toggleBtn.textContent = '+';
+      }
+    });
+  }
+});
 
   attachEventListeners();
 };
