@@ -12,7 +12,7 @@
   color: white;
   min-height: 60vh;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: center;
 }
 
@@ -40,6 +40,10 @@
   margin-bottom: 2rem;
   opacity: 0.9;
   max-width: 500px;
+}
+
+.hero img {
+  width: 50%;
 }
 
 /* Stats Section */

@@ -1,50 +1,50 @@
 export class Header extends HTMLElement {
-	constructor() {
-	  super();
-	  this.attachShadow({ mode: 'open' });
-	  this.render();
-	}
-  
-	connectedCallback() {
-	  this.attachEventListeners();
-	}
-  
-	attachEventListeners() {
-	  const masukBtn = this.shadowRoot.querySelector('.masuk-btn');
-	  const daftarBtn = this.shadowRoot.querySelector('.daftar-btn');
-	  const hamburgerBtn = this.shadowRoot.querySelector('.hamburger-btn');
-	  const nav = this.shadowRoot.querySelector('.nav');
-  
-	  masukBtn?.addEventListener('click', () => window.router.navigate('/login'));
-	  daftarBtn?.addEventListener('click', () => window.router.navigate('/register'));
-  
-	  hamburgerBtn?.addEventListener('click', () => {
-		nav.classList.toggle('active');
-		hamburgerBtn.classList.toggle('active');
-	  });
-  
-	  this.addHoverEffects(masukBtn, 'masuk-btn-hover');
-	  this.addHoverEffects(daftarBtn, 'daftar-btn-hover');
-	}
-  
-	addHoverEffects(btn, hoverClass) {
-	  btn?.addEventListener('mouseenter', () => {
-		btn.classList.add(hoverClass);
-	  });
-	  btn?.addEventListener('mouseleave', () => {
-		btn.classList.remove(hoverClass);
-	  });
-  
-	  btn?.addEventListener('touchstart', () => {
-		btn.classList.add(hoverClass);
-	  });
-	  btn?.addEventListener('touchend', () => {
-		btn.classList.remove(hoverClass);
-	  });
-	}
-  
-	render() {
-	  this.shadowRoot.innerHTML = `
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    this.render();
+  }
+
+  connectedCallback() {
+    this.attachEventListeners();
+  }
+
+  attachEventListeners() {
+    const masukBtn = this.shadowRoot.querySelector('.masuk-btn');
+    const daftarBtn = this.shadowRoot.querySelector('.daftar-btn');
+    const hamburgerBtn = this.shadowRoot.querySelector('.hamburger-btn');
+    const nav = this.shadowRoot.querySelector('.nav');
+
+    masukBtn?.addEventListener('click', () => window.router.navigate('/login'));
+    daftarBtn?.addEventListener('click', () => window.router.navigate('/register'));
+
+    hamburgerBtn?.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      hamburgerBtn.classList.toggle('active');
+    });
+
+    this.addHoverEffects(masukBtn, 'masuk-btn-hover');
+    this.addHoverEffects(daftarBtn, 'daftar-btn-hover');
+  }
+
+  addHoverEffects(btn, hoverClass) {
+    btn?.addEventListener('mouseenter', () => {
+      btn.classList.add(hoverClass);
+    });
+    btn?.addEventListener('mouseleave', () => {
+      btn.classList.remove(hoverClass);
+    });
+
+    btn?.addEventListener('touchstart', () => {
+      btn.classList.add(hoverClass);
+    });
+    btn?.addEventListener('touchend', () => {
+      btn.classList.remove(hoverClass);
+    });
+  }
+
+  render() {
+    this.shadowRoot.innerHTML = `
 		<style>
 		  :host {
 			display: block;
@@ -60,12 +60,19 @@ export class Header extends HTMLElement {
 			position: relative;
 			z-index: 100;
 		  }
+
+		  .header img{
+			width: 50px;
+			height: 50px;
+		  }
   
 		  .logo {
 			color: white;
 			font-size: 1.5rem;
 			font-weight: bold;
 			text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+			display: flex;
+			align-items: center;
 		  }
   
 		  .nav {
@@ -219,7 +226,10 @@ export class Header extends HTMLElement {
 		</style>
   
 		<header class="header">
+			<div class="logo">
+			<img src="./images/icon.png" alt="Logo" class="logo">
 		  <div class="logo">SIPEKAT</div>
+			</div>
   
 		  <button class="hamburger-btn" aria-label="Toggle Navigation">&#9776;</button>
   
@@ -239,7 +249,7 @@ export class Header extends HTMLElement {
 		  </nav>
 		</header>
 	  `;
-	}
   }
-  
-  customElements.define('header-component', Header);
+}
+
+customElements.define('header-component', Header);

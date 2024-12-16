@@ -15,7 +15,6 @@ import profilPage from './profilPage';
 
 // Import stylesheet dan komponen yang dibutuhkan
 import '../../styles/masyarakat.css';
-import '../../scripts/components/logout-button';
 
 /**
  * Konfigurasi rute untuk aplikasi masyarakat.

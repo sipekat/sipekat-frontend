@@ -14,7 +14,6 @@ import DashboardPage from './DashboardPage';
 
 // Import stylesheet dan komponen yang dibutuhkan
 import '../../styles/admin.css';
-import '../../scripts/components/logout-button';
 
 /**
  * Konfigurasi rute untuk aplikasi admin.

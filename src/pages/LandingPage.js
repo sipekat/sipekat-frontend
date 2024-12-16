@@ -11,6 +11,11 @@ export const render = (container) => {
           <p>Tingkatkan respons dan perbaikan untuk menciptakan lingkungan yang lebih baik!</p>
           <button class="mulai-btn">Mulai Lapor</button>
         </div>
+        <img 
+          src="./images/hero.png" 
+          alt="Hero Image"
+          className="w-full h-auto rounded-lg shadow-lg"
+        />
       </section>
 
       <div class="stats-container">
