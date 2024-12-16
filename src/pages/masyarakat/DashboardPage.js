@@ -48,12 +48,16 @@ const DashboardPage = {
     },
   
     async afterRender() {
-      // Tambahkan interaktivitas di sini, jika diperlukan
       const reportButton = document.querySelector('.report-button');
-      reportButton.addEventListener('click', () => {
-        alert('Fitur laporan akan segera tersedia!');
+      reportButton.addEventListener('click', async () => {
+        const root = document.querySelector('#app'); // Pastikan ada elemen #app di index.html
+        const LaporanMyPage = (await import('./laporanMyPage.js')).default; // Import halaman form laporan
+        
+        // Render halaman laporan
+        root.innerHTML = await LaporanMyPage.render();
+        if (LaporanMyPage.afterRender) await LaporanMyPage.afterRender();
       });
-    },
+    }    
   };
   
   export default DashboardPage;
