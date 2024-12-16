@@ -15,6 +15,7 @@ import profilPage from './profilPage';
 
 // Import stylesheet dan komponen yang dibutuhkan
 import '../../styles/masyarakat.css';
+import '../../scripts/components/logout-button';
 
 /**
  * Konfigurasi rute untuk aplikasi masyarakat.
@@ -38,13 +39,22 @@ const routes = {
  */
 const masyarakatTemplate = `
   <header class="header">
-    <button class="menu-button" id="menuButton">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
-    </button>
+  <button class="menu-button" id="menuButton">
+    <!-- Hamburger Icon -->
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+
+  <!-- Tempat Sampah Icon -->
+  <button class="trash-icon" id="trashIcon">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 6h18M7 6v14a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V6M10 6V4a2 2 0 0 1 4 0v2"></path>
+    </svg>
+  </button>
+  
     <div class="overlay" id="overlay"></div>
     <nav class="drawer" id="drawer">
       <div class="drawer-header">
@@ -118,6 +128,8 @@ const main = () => {
   const container = document.querySelector('#app');
   app.render(container);
 };
+
+
 
 // Event listener untuk memastikan DOM telah dimuat sebelum menjalankan aplikasi
 window.addEventListener('DOMContentLoaded', main);
