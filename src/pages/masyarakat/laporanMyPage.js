@@ -76,8 +76,18 @@ const DashboardPage = {
     },
   
     async afterRender() {
-      // Tambahkan interaksi atau event handler jika diperlukan
-    },
+      const reportForm = document.querySelector('.report-form');
+      reportForm.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Mencegah form untuk submit biasa
+    
+        const root = document.querySelector('#app'); // Pastikan ada elemen #app di index.html
+        const LaporanMyPage = (await import('./ReportSuccessPage.js')).default; // Import halaman form laporan
+        
+        // Render halaman laporan
+        root.innerHTML = await LaporanMyPage.render();
+        if (LaporanMyPage.afterRender) await LaporanMyPage.afterRender();
+      });
+    }    
   };
   
   export default DashboardPage;
