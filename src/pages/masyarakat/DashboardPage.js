@@ -1,6 +1,6 @@
 const DashboardPage = {
-    async render() {
-      return `
+  async render() {
+    return `
        
   
         <main>
@@ -8,7 +8,7 @@ const DashboardPage = {
             <h1>Selamat Datang di Smart Reporting!</h1>
             <p><strong>Solusi pelaporan cerdas untuk infrastruktur dan kesehatan.</strong></p>
             <p>Tingkatkan respons dan perbaikan untuk menciptakan lingkungan yang lebih baik!</p>
-            <button class="report-button">Mulai Lapor</button>
+            <a href="masyarakat#laporan" class="report-button" data-link>Mulai Lapor</a>
           </section>
   
           <section class="stats">
@@ -45,19 +45,9 @@ const DashboardPage = {
           <p>Best Viewed with Mozilla Firefox / Google Chrome</p>
         </footer>
       `;
-    },
-  
-    async afterRender() {
-      const reportButton = document.querySelector('.report-button');
-      reportButton.addEventListener('click', async () => {
-        const root = document.querySelector('#app'); // Pastikan ada elemen #app di index.html
-        const LaporanMyPage = (await import('./laporanMyPage.js')).default; // Import halaman form laporan
-        
-        // Render halaman laporan
-        root.innerHTML = await LaporanMyPage.render();
-        if (LaporanMyPage.afterRender) await LaporanMyPage.afterRender();
-      });
-    }    
-  };
-  
-  export default DashboardPage;
+  },
+
+  async afterRender() {},
+};
+
+export default DashboardPage;

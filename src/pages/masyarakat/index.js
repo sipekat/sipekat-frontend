@@ -12,6 +12,7 @@ import DashboardPage from './DashboardPage';
 import NotifikasiPage from './notifikasiPage';
 import laporanPage from './laporanPage';
 import profilPage from './profilPage';
+import createReportPage from './laporanMyPage';
 
 // Import stylesheet dan komponen yang dibutuhkan
 import '../../styles/masyarakat.css';
@@ -27,6 +28,7 @@ const routes = {
   '/masyarakat#notifikasi': NotifikasiPage, // Halaman notifikasi pengguna
   '/masyarakat#laporansaya': laporanPage, // Halaman daftar laporan pengguna
   '/masyarakat#profil': profilPage, // Halaman profil pengguna
+  '/masyarakat#laporan': createReportPage, // Halaman buat laporan
 };
 
 /**
@@ -128,8 +130,6 @@ const main = () => {
   const container = document.querySelector('#app');
   app.render(container);
 };
-
-
 
 // Event listener untuk memastikan DOM telah dimuat sebelum menjalankan aplikasi
 window.addEventListener('DOMContentLoaded', main);

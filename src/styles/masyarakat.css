@@ -276,7 +276,7 @@ button {
   .notification-status {
     font-size: 1rem;
     font-weight: bold;
-    color: #007BFF;
+    color: #007bff;
     /* Warna teks biru */
     margin-bottom: 5px;
   }
@@ -359,6 +359,7 @@ button {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
   }
 
   .report-button:hover {
@@ -519,7 +520,7 @@ button {
     text-align: center;
     margin: 20px;
   }
-  
+
   .header .back-button {
     position: absolute;
     left: 10px;
@@ -527,17 +528,17 @@ button {
     font-size: 18px;
     cursor: pointer;
   }
-  
+
   .title {
     font-size: 24px;
     font-weight: bold;
   }
-  
+
   .verification-info .phone-number {
     font-weight: bold;
     margin: 10px 0;
   }
-  
+
   .form-container .next-button {
     background-color: green;
     color: white;
@@ -545,264 +546,260 @@ button {
     border: none;
     cursor: pointer;
   }
-  
+
   .form-container .next-button:hover {
     background-color: darkgreen;
   }
-  
+
   /* Form Login  */
 
   /* General Styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f3f7fb;
-}
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f7fb;
+  }
 
-.login-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  padding: 20px;
-}
+  .login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+  }
 
+  .app-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
 
-.app-title {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0;
-}
+  /* Form Section */
+  .form-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
 
-/* Form Section */
-.form-container {
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-}
+  .form-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
 
-.form-title {
-  font-size: 18px;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
+  .form-group {
+    margin-bottom: 15px;
+  }
 
-.form-group {
-  margin-bottom: 15px;
-}
+  label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
 
-label {
-  display: block;
-  font-size: 14px;
-  margin-bottom: 5px;
-}
+  input[type='text'] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
 
-input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
+  input[type='text']:focus {
+    border-color: #4caf50;
+    outline: none;
+  }
 
-input[type="text"]:focus {
-  border-color: #4caf50;
-  outline: none;
-}
+  /* Link Lupa Kata Sandi */
+  .forgot-password-link {
+    font-size: 12px;
+    color: #007bff;
+    text-decoration: none;
+  }
 
-/* Link Lupa Kata Sandi */
-.forgot-password-link {
-  font-size: 12px;
-  color: #007bff;
-  text-decoration: none;
-}
+  .forgot-password-link:hover {
+    text-decoration: underline;
+  }
 
-.forgot-password-link:hover {
-  text-decoration: underline;
-}
+  /* Button Submit */
+  .submit-button {
+    width: 100%;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
 
-/* Button Submit */
-.submit-button {
-  width: 100%;
-  background-color: #4caf50;
-  color: #fff;
-  font-size: 14px;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+  .submit-button:hover {
+    background-color: #45a049;
+  }
 
-.submit-button:hover {
-  background-color: #45a049;
-}
+  /* CSS Untuk Halaman Mulai Laporan laporanMyPage.js */
+  .create-report-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
 
+  .report-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
 
-/* CSS Untuk Halaman Mulai Laporan laporanMyPage.js */
-.create-report-section {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
 
-.report-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+  .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
+  .form-group input,
+  .form-group textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
 
-.form-group label {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
+  .submit-button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-start;
+  }
 
-.form-group input,
-.form-group textarea {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
 
-.submit-button {
-  padding: 12px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  align-self: flex-start;
-}
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+  }
 
-.submit-button:hover {
-  background-color: #0056b3;
-}
+  /* CSS Untuk Halaman Kirim Laporan ReportSuccessPage.js */
+  .success-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+  }
 
-.footer {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 14px;
-  color: #666;
-}
+  .success-header {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 40px;
+  }
 
-/* CSS Untuk Halaman Kirim Laporan ReportSuccessPage.js */
-.success-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: #f9f9f9;
-  padding: 20px;
-  text-align: center;
-}
+  .success-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #007bff;
+    margin: 0;
+    text-align: center;
+  }
 
-.success-header {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  margin-bottom: 40px;
-}
+  .back-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #007bff;
+    cursor: pointer;
+  }
 
-.success-title {
-  font-size: 32px;
-  font-weight: bold;
-  color: #007bff;
-  margin: 0;
-  text-align: center;
-}
+  .back-button .arrow-icon {
+    font-size: 24px;
+  }
 
-.back-button {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #007bff;
-  cursor: pointer;
-}
+  .success-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
 
-.back-button .arrow-icon {
-  font-size: 24px;
-}
+  .success-icon {
+    font-size: 48px;
+    color: #28a745; /* Warna hijau */
+  }
 
-.success-message {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 30px;
-}
+  .success-text {
+    font-size: 20px;
+    color: #333;
+  }
 
-.success-icon {
-  font-size: 48px;
-  color: #28a745; /* Warna hijau */
-}
+  .success-actions .status-button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745; /* Warna hijau */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
 
-.success-text {
-  font-size: 20px;
-  color: #333;
-}
+  .success-actions .status-button:hover {
+    background-color: #218838; /* Warna hijau lebih gelap */
+  }
 
-.success-actions .status-button {
-  padding: 12px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  background-color: #28a745; /* Warna hijau */
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+  /* ikon tempat sampah sejajar dengan tombol hamburger dan berada di pojok kanan */
+  .header {
+    display: flex;
+    justify-content: space-between; /* Tombol hamburger dan ikon tempat sampah sejajar dengan jarak yang sesuai */
+    align-items: center; /* Menyelaraskan item secara vertikal */
+    position: relative; /* Menentukan posisi relatif untuk elemen anak */
+    padding: 10px 20px;
+  }
 
-.success-actions .status-button:hover {
-  background-color: #218838; /* Warna hijau lebih gelap */
-}
+  .trash-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    right: 20px; /* Menempatkan ikon di sebelah kanan */
+  }
 
-/* ikon tempat sampah sejajar dengan tombol hamburger dan berada di pojok kanan */
-.header {
-  display: flex;
-  justify-content: space-between; /* Tombol hamburger dan ikon tempat sampah sejajar dengan jarak yang sesuai */
-  align-items: center; /* Menyelaraskan item secara vertikal */
-  position: relative; /* Menentukan posisi relatif untuk elemen anak */
-  padding: 10px 20px;
-}
-
-.trash-icon {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  position: absolute;
-  right: 20px; /* Menempatkan ikon di sebelah kanan */
-}
-
-.trash-icon svg {
-  width: 24px;
-  height: 24px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-
+  .trash-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
 }
