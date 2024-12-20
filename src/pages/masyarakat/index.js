@@ -16,7 +16,6 @@ import createReportPage from './laporanMyPage';
 
 // Import stylesheet dan komponen yang dibutuhkan
 import '../../styles/masyarakat.css';
-import '../../scripts/components/logout-button';
 
 /**
  * Konfigurasi rute untuk aplikasi masyarakat.
@@ -108,7 +107,10 @@ const masyarakatTemplate = `
       </ul>
     </nav>
   </header>
+
   <main class="main-content" id="page-content"></main>
+
+  <custom-footer></custom-footer>
 `;
 
 /**

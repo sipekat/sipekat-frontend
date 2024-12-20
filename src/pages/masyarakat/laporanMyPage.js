@@ -1,6 +1,6 @@
 const DashboardPage = {
-    async render() {
-      return `
+  async render() {
+    return `
         <section class="create-report-section">
           
           <!-- Formulir Laporan -->
@@ -67,28 +67,23 @@ const DashboardPage = {
             <button type="submit" class="submit-button">Kirim Laporan</button>
           </form>
           
-          <footer class="footer">
-            <p>© Copyright © 2024 SIPEKAT. <br>
-            Best Viewed with Mozilla Firefox / Google Chrome</p>
-          </footer>
         </section>
       `;
-    },
-  
-    async afterRender() {
-      const reportForm = document.querySelector('.report-form');
-      reportForm.addEventListener('submit', async (event) => {
-        event.preventDefault(); // Mencegah form untuk submit biasa
-    
-        const root = document.querySelector('#app'); // Pastikan ada elemen #app di index.html
-        const LaporanMyPage = (await import('./ReportSuccessPage.js')).default; // Import halaman form laporan
-        
-        // Render halaman laporan
-        root.innerHTML = await LaporanMyPage.render();
-        if (LaporanMyPage.afterRender) await LaporanMyPage.afterRender();
-      });
-    }    
-  };
-  
-  export default DashboardPage;
-  
+  },
+
+  async afterRender() {
+    const reportForm = document.querySelector('.report-form');
+    reportForm.addEventListener('submit', async (event) => {
+      event.preventDefault(); // Mencegah form untuk submit biasa
+
+      const root = document.querySelector('#app'); // Pastikan ada elemen #app di index.html
+      const LaporanMyPage = (await import('./ReportSuccessPage.js')).default; // Import halaman form laporan
+
+      // Render halaman laporan
+      root.innerHTML = await LaporanMyPage.render();
+      if (LaporanMyPage.afterRender) await LaporanMyPage.afterRender();
+    });
+  },
+};
+
+export default DashboardPage;

@@ -1,5 +1,9 @@
 const DashboardPage = {
   async render() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const userName = user ? user.name : 'Pengguna';
+    const userEmail = user ? user.email : 'email';
+    const userPhone = user ? user.phone : 'phone';
     return `
       <div class="profile-container">
         <div class="profile-card">
@@ -13,10 +17,9 @@ const DashboardPage = {
           
           <!-- Profile Details -->
           <div class="profile-details">
-            <p class="profile-name">Sigit Purnomo Syamsudin Said</p>
-            <button class="edit-button">Ubah Profil</button>
-            <p class="profile-email">Sigitpurnomo1979@gmail.com</p>
-            <p class="profile-phone">+627885423641</p>
+            <p class="profile-name">${userName}</p>
+            <p class="profile-email">${userEmail}</p>
+            <p class="profile-phone">${userPhone}</p>
           </div>
           
           <!-- Logout Button -->
