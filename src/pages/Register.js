@@ -59,17 +59,22 @@ export const render = (container) => {
       .login-link:hover {
         text-decoration: underline;
       }
+      .otp-section {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #ddd;
+      }
     </style>
     <div class="container">
       <h2>Register</h2>
-      <form>
+      <form id="registerForm">
         <div class="form-group">
-          <label for="name">Nama Lengkap</label>
-          <input type="text" id="name" name="name" required>
+          <label for="nama">Nama Lengkap</label>
+          <input type="text" id="nama" name="nama" required>
         </div>
         <div class="form-group">
-          <label for="contact">Nomor Kontak</label>
-          <input type="tel" id="contact" name="contact" 
+          <label for="nomor_hp">Nomor Kontak</label>
+          <input type="tel" id="nomor_hp" name="nomor_hp" 
                  pattern="[0-9]{10,13}" 
                  title="Nomor telepon (10-13 digit)"
                  required>
@@ -77,6 +82,10 @@ export const render = (container) => {
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="tanggalLahir">Tanggal Lahir</label>
+          <input type="date" id="tanggalLahir" name="tanggalLahir" required>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
@@ -90,6 +99,17 @@ export const render = (container) => {
                  minlength="6"
                  required>
         </div>
+        <div class="otp-section">
+          <div class="form-group">
+            <label for="otp">Kode OTP</label>
+            <input type="text" id="otp" name="otp" 
+                   maxlength="6" 
+                   pattern="[0-9]{6}"
+                   placeholder="Masukkan 6 digit OTP"
+                   required>
+          </div>
+          <button type="button" id="requestOtp">Minta OTP</button>
+        </div>
         <div class="error"></div>
         <button type="submit">Register</button>
         <p class="login-text">
@@ -101,11 +121,12 @@ export const render = (container) => {
   `;
 
   // Attach event listeners
-  const form = container.querySelector('form');
+  const form = container.querySelector('#registerForm');
   const loginLink = container.querySelector('.login-link');
   const password = container.querySelector('#password');
   const confirmPassword = container.querySelector('#confirm-password');
   const errorDiv = container.querySelector('.error');
+  const requestOtpButton = container.querySelector('#requestOtp');
 
   // Password confirmation validation
   confirmPassword.addEventListener('input', () => {
@@ -118,26 +139,69 @@ export const render = (container) => {
     }
   });
 
-  // Form submission handler
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const name = formData.get('name');
-    const contact = formData.get('contact');
-    const email = formData.get('email');
-    const password = formData.get('password');
+  // Request OTP handler
+  requestOtpButton.addEventListener('click', async () => {
+    const formData = new FormData(form);
 
+    // Validate required fields
+    const requiredFields = ['nama', 'email', 'nomor_hp', 'tanggalLahir', 'password'];
+    for (const field of requiredFields) {
+      if (!formData.get(field)) {
+        errorDiv.textContent = 'Harap isi semua data terlebih dahulu';
+        return;
+      }
+    }
+
+    // Validate password confirmation
     if (formData.get('password') !== formData.get('confirm-password')) {
       errorDiv.textContent = 'Password tidak cocok';
       return;
     }
 
-    if (window.authService.register(name, contact, email, password)) {
-      alert('Registrasi berhasil! Silakan login.');
-      window.router.navigate('/login');
-    } else {
-      errorDiv.textContent = 'Email sudah terdaftar';
+    try {
+      const response = await fetch('https://api-sipekat.my.id/auth/api/v1/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nama: formData.get('nama'),
+          email: formData.get('email'),
+          nomor_hp: formData.get('nomor_hp'),
+          tanggalLahir: formData.get('tanggalLahir'),
+          password: formData.get('password'),
+          role: 'user',
+        }),
+      });
+
+      if (response.ok) {
+        errorDiv.textContent = 'OTP telah dikirim ke email Anda';
+        errorDiv.style.color = '#28a745'; // Success color
+      } else {
+        const data = await response.json();
+        errorDiv.textContent = data.message || 'Terjadi kesalahan saat mengirim OTP';
+        errorDiv.style.color = '#dc3545'; // Error color
+      }
+    } catch (error) {
+      errorDiv.textContent = 'Terjadi kesalahan pada server'.error;
+      console.error('Error:', error);
     }
+  });
+
+  // Form submission handler
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+
+    // Validate OTP
+    const otp = formData.get('otp');
+    if (!otp || otp.length !== 6) {
+      errorDiv.textContent = 'Masukkan kode OTP yang valid';
+      return;
+    }
+
+    // Redirect to login page
+    window.router.navigate('/login');
   };
 
   form.addEventListener('submit', handleSubmit);
