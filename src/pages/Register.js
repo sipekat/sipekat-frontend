@@ -170,7 +170,7 @@ export const render = (container) => {
           nomor_hp: formData.get('nomor_hp'),
           tanggalLahir: formData.get('tanggalLahir'),
           password: formData.get('password'),
-          role: 'user',
+          role: 'masyarakat',
         }),
       });
 
