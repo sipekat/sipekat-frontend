@@ -523,6 +523,40 @@ textarea.form-control {
   margin: 0;
 }
 
+.faq-question-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  background: #15405a;
+}
+
+.faq-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  color: wheat;
+}
+
+.faq-answer {
+  padding: 1rem;
+  border-top: 1px solid #eee;
+  display: none;
+}
+
+.faq-item {
+  margin-bottom: 1rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  background: #15405a;
+}
+
 /* Media Queries */
 @media (max-width: 1024px) {
   .stats-container {
