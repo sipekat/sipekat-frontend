@@ -1,0 +1,805 @@
+/* Reset default margin dan padding */
+body,
+h1,
+h2,
+h3,
+p,
+button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Container utama */
+.container {
+  padding: 20px;
+  background-color: #f2f2f2;
+  width: 100%;
+  /* Full width untuk mobile */
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  /* Menyusun secara vertikal di mobile */
+  align-items: center;
+  padding-bottom: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 15px;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.profile-icon {
+  font-size: 1.5rem;
+}
+
+/* Bagian laporan */
+.report-section {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+.report-section h2 {
+  font-size: 1.2rem;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.report-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.report-item {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+}
+
+.report-item h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.report-item .location {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Status label */
+.status-label {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.pending {
+  background-color: #3498db;
+  color: #ffffff;
+}
+
+.processing {
+  background-color: #f39c12;
+  color: #ffffff;
+}
+
+.completed {
+  background-color: #2ecc71;
+  color: #ffffff;
+}
+
+/* Tombol kembali */
+.back-button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 280px;
+  height: 100%;
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.drawer.open {
+  transform: translateX(280px);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+  z-index: 999;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.menu-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.drawer-header {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.drawer-header h2 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 10px;
+}
+
+.nav-item {
+  margin-bottom: 5px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  text-decoration: none;
+  color: #333;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: #f5f5f5;
+}
+
+.nav-link svg {
+  margin-right: 15px;
+  width: 24px;
+  height: 24px;
+}
+
+/* Media Query untuk tampilan tablet dan desktop */
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    /* Susunan horizontal di layar lebih besar */
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .report-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .report-item {
+    padding: 20px;
+  }
+
+  .report-list {
+    gap: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 30px;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .report-item {
+    padding: 25px;
+  }
+
+  .status-label {
+    font-size: 1rem;
+  }
+
+  .notification-container {
+    width: 90%;
+    /* Membuat lebar lebih responsif */
+    max-width: 600px;
+    /* Batas maksimal lebar */
+    margin: 20px auto;
+    /* Pusatkan elemen secara horizontal dan beri margin atas */
+    background-color: #fff;
+    /* Warna background putih */
+    border-radius: 8px;
+    /* Bikin sudut membulat */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Beri bayangan */
+    padding: 15px;
+    /* Ruang dalam */
+  }
+
+  .notification-item {
+    padding: 15px 10px;
+    border-bottom: 1px solid #ddd;
+    /* Garis pemisah */
+  }
+
+  .notification-item:last-child {
+    border-bottom: none;
+    /* Hilangkan garis pada elemen terakhir */
+  }
+
+  .notification-status {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #007bff;
+    /* Warna teks biru */
+    margin-bottom: 5px;
+  }
+
+  .notification-time {
+    font-size: 0.85rem;
+    color: #666;
+    /* Warna abu-abu */
+    margin-bottom: 10px;
+  }
+
+  .notification-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    /* Warna teks gelap */
+    margin-bottom: 5px;
+  }
+
+  .notification-location {
+    font-size: 0.9rem;
+    color: #555;
+    /* Warna teks medium */
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+
+  body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  main {
+    padding: 20px;
+  }
+
+  .welcome {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .welcome h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  .welcome p {
+    margin-bottom: 10px;
+  }
+
+  .report-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .report-button:hover {
+    background-color: #218838;
+  }
+
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  .stat-item {
+    flex: 1 1 150px;
+    text-align: center;
+    margin: 10px;
+  }
+
+  .stat-number {
+    font-size: 1.5em;
+    color: #007bff;
+    margin-bottom: 5px;
+  }
+
+  .report-guide {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .contact {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .whatsapp-number {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #25d366;
+    margin-top: 10px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    margin-top: 20px;
+    font-size: 0.9em;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Styling umum */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Header Styling */
+  .register-page .header {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .register-page .header i {
+    font-size: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .register-page .header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  /* Form Styling */
+  .register-page .form-container {
+    max-width: 450px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .register-page h2 {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .register-page .form-group {
+    margin-bottom: 20px;
+  }
+
+  .register-page .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+
+  .register-page .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  .register-page .form-group input:focus {
+    outline: none;
+    border-color: #28a745;
+    box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.25);
+  }
+
+  /* Styling for description under fields */
+  .register-page .form-group .description {
+    font-size: 14px;
+    color: #6c757d;
+    margin-top: 5px;
+  }
+
+  /* Button Styling */
+  .register-page button {
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .register-page button:hover {
+    background: #218838;
+  }
+
+  /* Keterangan tambahan */
+  .register-page .age-confirmation {
+    font-size: 14px;
+    color: #6c757d;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .verification-page {
+    text-align: center;
+    margin: 20px;
+  }
+
+  .header .back-button {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .verification-info .phone-number {
+    font-weight: bold;
+    margin: 10px 0;
+  }
+
+  .form-container .next-button {
+    background-color: green;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .form-container .next-button:hover {
+    background-color: darkgreen;
+  }
+
+  /* Form Login  */
+
+  /* General Styles */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f7fb;
+  }
+
+  .login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+  }
+
+  .app-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  /* Form Section */
+  .form-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .form-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  input[type='text'] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  input[type='text']:focus {
+    border-color: #4caf50;
+    outline: none;
+  }
+
+  /* Link Lupa Kata Sandi */
+  .forgot-password-link {
+    font-size: 12px;
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .forgot-password-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Button Submit */
+  .submit-button {
+    width: 100%;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .submit-button:hover {
+    background-color: #45a049;
+  }
+
+  /* CSS Untuk Halaman Mulai Laporan laporanMyPage.js */
+  .create-report-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .report-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .submit-button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-start;
+  }
+
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+  }
+
+  /* CSS Untuk Halaman Kirim Laporan ReportSuccessPage.js */
+  .success-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .success-header {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 40px;
+  }
+
+  .success-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #007bff;
+    margin: 0;
+    text-align: center;
+  }
+
+  .back-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #007bff;
+    cursor: pointer;
+  }
+
+  .back-button .arrow-icon {
+    font-size: 24px;
+  }
+
+  .success-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .success-icon {
+    font-size: 48px;
+    color: #28a745; /* Warna hijau */
+  }
+
+  .success-text {
+    font-size: 20px;
+    color: #333;
+  }
+
+  .success-actions .status-button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745; /* Warna hijau */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .success-actions .status-button:hover {
+    background-color: #218838; /* Warna hijau lebih gelap */
+  }
+
+  /* ikon tempat sampah sejajar dengan tombol hamburger dan berada di pojok kanan */
+  .header {
+    display: flex;
+    justify-content: space-between; /* Tombol hamburger dan ikon tempat sampah sejajar dengan jarak yang sesuai */
+    align-items: center; /* Menyelaraskan item secara vertikal */
+    position: relative; /* Menentukan posisi relatif untuk elemen anak */
+    padding: 10px 20px;
+  }
+
+  .trash-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    right: 20px; /* Menempatkan ikon di sebelah kanan */
+  }
+
+  .trash-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}
